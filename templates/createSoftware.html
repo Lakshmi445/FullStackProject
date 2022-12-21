@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Add Softwares</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<style>
+h1{
+color:yellow;
+}
+input{
+background-color:Gray;
+}
+label{
+color:Tomato;
+}
+body{
+ background-color:Lime;
+  background-image: url("https://cdn.pixabay.com/photo/2017/05/19/10/43/matrix-2326147__340.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size:cover;
+ hight:100vh;
+
+}
+</style>
+</head>
+<body>
+<div class="container">
+<div class="row">
+<h1>Add new Softwares</h1>
+</div>
+<div class="card-body">
+<form th:action = @{/insertSoftwares} th:object="${softobj}" method = "post">
+<div class="form-group">
+<label> Enter Software Name </label>
+<input type="text" name="name" th:field="*{softwarename}" class="form-control" required placeholder="Enter your softwarename"></input>
+<label>Enter price</label>
+<input type="text" name="price" th:field="*{price}" class="form-control" required placeholder="Enter your price"/>
+ <label>Enter stock</label>
+ <input type="text" name="stock" th:field="*{stock}" class="form-control" required placeholder="Enter your stock"/>
+</div>
+<div class="box-footer">
+<button type="submit" class="btn btn-primary">Add this Software!</button>
+</div>
+
+</form>
+</div>
+</div>
+</body>
+</html>
